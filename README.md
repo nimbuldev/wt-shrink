@@ -2,8 +2,6 @@
 
 ResizeTerminal is a PowerShell module that temporarily resizes your terminal window when running commands, creating a "ribbon" effect for commands with extensive output. After the command completes, the terminal returns to its original size.
 
-<!-- TODO: Replace with an actual GIF demonstration of the basic resize functionality -->
-
 ![ResizeTerminal Demo](images/demo-main.gif)
 
 ## Features
@@ -15,9 +13,6 @@ ResizeTerminal is a PowerShell module that temporarily resizes your terminal win
 -   **Compatible**: Works with Windows Terminal, PowerShell, cmd, and other console applications
 -   **Quake Mode Compatible**: Works great with [Windows-Terminal-Quake](https://github.com/flyingpie/windows-terminal-quake) for an even more dynamic terminal experience
 
-<!-- TODO: Add a GIF showing integration with Windows-Terminal-Quake -->
-
-![ResizeTerminal with Quake Mode](images/demo-quake-mode.gif)
 
 ## Installation
 
@@ -78,9 +73,7 @@ Resize-Terminal -Command "npm install" -RibbonHeight 150
 Resize-Terminal -Command "docker ps -a" -RibbonHeight 200 -AnimationType "EaseInOut" -AnimationDuration 300 -AnimationFrameRate 90
 ```
 
-<!-- TODO: Add a GIF showing a simple command being executed with terminal resizing -->
-
-![Basic Usage Example](images/demo-basic-usage.gif)
+[Basic Usage Example](https://github.com/user-attachments/assets/57d8b849-d6be-47e4-ae55-183610500e53)
 
 ### Creating Command Shims
 
@@ -110,9 +103,8 @@ New-ResizeShim "python" -Trigger @("data_processing.py", "long_running.py") -Rib
 New-ResizeShim "kubectl" -Trigger @("logs", "describe pod") -RibbonHeight 300
 ```
 
-<!-- TODO: Add a GIF demonstrating conditional resizing with triggers -->
+[Trigger Feature Demo](https://github.com/user-attachments/assets/263b31da-6aee-433f-8073-74a714506ceb)
 
-![Trigger Feature Demo](images/demo-triggers.gif)
 
 ### Managing Shims
 
@@ -139,10 +131,6 @@ When combined with Quake mode, you can:
 4. Hide the terminal with the hotkey when done
 
 This creates an efficient workflow where the terminal is only visible when needed and automatically adjusts its size based on the current task.
-
-<!-- TODO: Add a GIF showing a complete workflow with Quake mode and ResizeTerminal -->
-
-![Complete Workflow Demo](images/demo-workflow.gif)
 
 ### Setup with Windows Terminal Quake
 
