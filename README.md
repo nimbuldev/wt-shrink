@@ -1,14 +1,14 @@
 # ResizeTerminal
 
-ResizeTerminal is a PowerShell module that temporarily resizes your terminal window when running commands, creating a "ribbon" effect for commands with extensive output. After the command completes, the terminal returns to its original size.
+ResizeTerminal is a PowerShell module that temporarily resizes your terminal window when running certain commands, creating a "ribbon" effect for commands with long output. After the command completes, the terminal returns to its original size. Primarily intended for me to babysit build processes while saving screen space.
 
 ![ResizeTerminal Demo](images/demo-main.gif)
 
 ## Features
 
--   Automatically shrinks your terminal window when running commands
+-   Automatically shrinks your terminal window when running configured commands
 -   Smooth animations when resizing (with customizable easing functions)
--   Easily create shims for your most-used commands
+-   Easily create and manage shims for your most-used commands
 -   Trigger resizing only when specific arguments are used
 -   Works with Windows Terminal, PowerShell, cmd, and other console applications
 -   Works great with [Windows-Terminal-Quake](https://github.com/flyingpie/windows-terminal-quake)
@@ -44,13 +44,15 @@ Add the following to your PowerShell profile to load the module automatically wh
 1. Open your PowerShell profile:
 
 ```powershell
-notepad $PROFILE
+notepad $PROFILE # best code editor
 ```
 
 2. Add the following line to your profile:
 
 ```powershell
 Import-Module ResizeTerminal
+
+# Optionally, add your shims here for persistence.
 ```
 
 3. Save and close the file.
@@ -70,7 +72,7 @@ Import-Module ResizeTerminal
 Resize-Terminal -Command "npm install" -RibbonHeight 150
 
 # Run a command with custom animation
-Resize-Terminal -Command "docker ps -a" -RibbonHeight 200 -AnimationType "EaseInOut" -AnimationDuration 300 -AnimationFrameRate 90
+Resize-Terminal -Command { docker ps -a } -RibbonHeight 200 -AnimationType "EaseInOut" -AnimationDuration 300 -AnimationFrameRate 90
 ```
 
 [Basic Usage Example](https://github.com/user-attachments/assets/57d8b849-d6be-47e4-ae55-183610500e53)
@@ -88,6 +90,7 @@ npm install
 New-ResizeShim "docker" -RibbonHeight 200 -AnimationType "EaseInOut" -AnimationDuration 300
 ```
 Note: Creating a shim with arguments or using a relative path is not fully supported. For example, `New-ResizeShim "npm install" -RibbonHeight 150` will alias "npm" to invoke "npm install." 
+If you're trying to do this, you're probably actually looking for the next section of this README.
 
 
 ### Conditional Resizing with Triggers
@@ -129,8 +132,8 @@ Remove-ResizeShim npm
 Control how tall the ribbon should be:
 
 ```powershell
-New-ResizeShim "npm install" -RibbonHeight 150  # Smaller ribbon (minimum: 50)
-New-ResizeShim "docker ps" -RibbonHeight 300    # Larger ribbon
+New-ResizeShim "npm" -RibbonHeight 150  # Smaller ribbon (minimum: 50)
+New-ResizeShim "docker" -RibbonHeight 300    # Larger ribbon
 ```
 
 ### Animation Settings
@@ -139,17 +142,17 @@ Customize the animation behavior:
 
 ```powershell
 # Disable animation
-New-ResizeShim "npm install" -EnableAnimation:$false
+New-ResizeShim "npm" -EnableAnimation:$false
 
 # Change animation duration (milliseconds)
-New-ResizeShim "npm install" -AnimationDuration 500  # Slower animation
-New-ResizeShim "npm install" -AnimationDuration 100  # Faster animation
+New-ResizeShim "npm" -AnimationDuration 500  # Slower animation
+New-ResizeShim "npm" -AnimationDuration 100  # Faster animation
 
 # Change animation easing type
-New-ResizeShim "npm install" -AnimationType "Linear"    # Linear animation
-New-ResizeShim "npm install" -AnimationType "EaseIn"    # Accelerating animation
-New-ResizeShim "npm install" -AnimationType "EaseOut"   # Decelerating animation (default)
-New-ResizeShim "npm install" -AnimationType "EaseInOut" # Smooth acceleration and deceleration
+New-ResizeShim "npm" -AnimationType "Linear"    # Linear animation
+New-ResizeShim "npm" -AnimationType "EaseIn"    # Accelerating animation
+New-ResizeShim "npm" -AnimationType "EaseOut"   # Decelerating animation (default)
+New-ResizeShim "npm" -AnimationType "EaseInOut" # Smooth acceleration and deceleration
 ```
 
 ## Advanced Examples
@@ -175,12 +178,7 @@ New-ResizeShim "docker build" -AnimationDuration 400 -AnimationType "EaseInOut" 
 
 ### Window Detection Issues
 
-If the module fails to detect your terminal window correctly:
-
-```powershell
-# Try running in the main terminal window (not a nested console)
-# Make sure you're using a supported terminal (Windows Terminal, PowerShell, CMD)
-```
+If the module fails to detect your terminal window correctly, try running in the main terminal window (not a nested console)
 
 ### Command Not Found After Creating Shim
 
@@ -193,36 +191,32 @@ Get-ResizeShim yourcommand
 # Try removing and recreating the shim
 Remove-ResizeShim yourcommand
 New-ResizeShim "yourcommand" -RibbonHeight 150
+
+# Or just do that faster with -Force
+New-ResizeShim "yourcommand" -RibbonHeight 150 -Force
 ```
 
 ### Animation Not Working
 
-If animations aren't working:
-
-```powershell
-# Try with a longer duration to make sure it's not just too fast
-New-ResizeShim "yourcommand" -AnimationDuration 1000 -RibbonHeight 150
-
-# Verify your Windows version supports the animation APIs
-```
+Verify your Windows config has animation enabled.
 
 ## Compatibility
 
 -   Windows 10/11
 -   PowerShell 5.1 and PowerShell 7+
--   Windows Terminal, PowerShell Console, and Command Prompt
+-   Probably like... most terminals. If you have an integrated terminal that loads your profile-- be warned. My VSCode is still sore.
 -   Works with Windows Terminal Quake Mode
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License I guess - you know the one. I don't care what you do.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Please feel free to submit a Pull Request. I might not even read it-- I like to live dangerously.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## AI DISCLAIMER
+
+This project was primarily made by agentic AI, guided by me whilst eating a sandwich.
+It's still very bad, and I hate it. Nonetheless, the vibes were real.
+The examples in this README are stupid. The module is really just so I can be sure my builds are still running.
