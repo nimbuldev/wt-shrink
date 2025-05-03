@@ -109,6 +109,7 @@ New-ResizeShim "kubectl" -Trigger @("logs", "describe pod") -RibbonHeight 300
 
 
 ### Managing Shims
+Shims are session-scoped. This module saves no files and has no persistence. For permanent shims, add the module and New-ResizeShim commands to your terminal profile.
 
 ```powershell
 # List all created shims
@@ -120,28 +121,6 @@ Get-ResizeShim npm
 # Remove a shim
 Remove-ResizeShim npm
 ```
-
-## Windows Terminal Quake Mode Integration
-
-ResizeTerminal works especially well with [Windows-Terminal-Quake](https://github.com/flyingpie/windows-terminal-quake), which provides a Quake-style drop-down terminal for Windows.
-
-When combined with Quake mode, you can:
-
-1. Drop down your terminal with a hotkey
-2. Run commands that automatically resize to a ribbon
-3. Return to full size after command completion
-4. Hide the terminal with the hotkey when done
-
-This creates an efficient workflow where the terminal is only visible when needed and automatically adjusts its size based on the current task.
-
-### Setup with Windows Terminal Quake
-
-1. Install [Windows-Terminal-Quake](https://github.com/flyingpie/windows-terminal-quake)
-2. Configure your preferred hotkey for the drop-down terminal
-3. Install the ResizeTerminal module as described above
-4. Create shims for your common commands
-
-Now you can enjoy a streamlined terminal experience that dynamically resizes based on your needs.
 
 ## Configuration Options
 
