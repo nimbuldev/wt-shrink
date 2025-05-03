@@ -6,12 +6,12 @@ ResizeTerminal is a PowerShell module that temporarily resizes your terminal win
 
 ## Features
 
--   **Temporary Window Resizing**: Automatically shrinks your terminal window when running commands
--   **Animated Transitions**: Smooth animations when resizing (with customizable easing functions)
--   **Command Shimming**: Easily create shims for your most-used commands
--   **Conditional Resizing**: Trigger resizing only when specific arguments are used
--   **Compatible**: Works with Windows Terminal, PowerShell, cmd, and other console applications
--   **Quake Mode Compatible**: Works great with [Windows-Terminal-Quake](https://github.com/flyingpie/windows-terminal-quake)
+-   Automatically shrinks your terminal window when running commands
+-   Smooth animations when resizing (with customizable easing functions)
+-   Easily create shims for your most-used commands
+-   Trigger resizing only when specific arguments are used
+-   Works with Windows Terminal, PowerShell, cmd, and other console applications
+-   Works great with [Windows-Terminal-Quake](https://github.com/flyingpie/windows-terminal-quake)
 
 
 ## Installation
