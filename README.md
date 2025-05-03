@@ -78,7 +78,7 @@ Resize-Terminal -Command "docker ps -a" -RibbonHeight 200 -AnimationType "EaseIn
 ### Creating Simple Command Shims
 
 ```powershell
-# Create a basic shim for npm install
+# Create a basic shim for npm
 New-ResizeShim "npm" -RibbonHeight 150
 
 # Now just run the command as usual, and it will execute with the terminal resized
