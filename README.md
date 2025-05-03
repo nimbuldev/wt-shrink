@@ -75,18 +75,20 @@ Resize-Terminal -Command "docker ps -a" -RibbonHeight 200 -AnimationType "EaseIn
 
 [Basic Usage Example](https://github.com/user-attachments/assets/57d8b849-d6be-47e4-ae55-183610500e53)
 
-### Creating Command Shims
+### Creating Simple Command Shims
 
 ```powershell
 # Create a basic shim for npm install
-New-ResizeShim "npm install" -RibbonHeight 150
+New-ResizeShim "npm" -RibbonHeight 150
 
 # Now just run the command as usual, and it will execute with the terminal resized
 npm install
 
 # Create a shim with custom animation settings
-New-ResizeShim "docker ps -a" -RibbonHeight 200 -AnimationType "EaseInOut" -AnimationDuration 300
+New-ResizeShim "docker" -RibbonHeight 200 -AnimationType "EaseInOut" -AnimationDuration 300
 ```
+Note: Creating a shim with arguments or using a relative path is not fully supported. For example, `New-ResizeShim "npm install" -RibbonHeight 150` will alias "npm" to invoke "npm install." 
+
 
 ### Conditional Resizing with Triggers
 
