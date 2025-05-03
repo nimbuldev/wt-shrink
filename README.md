@@ -25,13 +25,13 @@ ResizeTerminal is a PowerShell module that temporarily resizes your terminal win
 
 1. Clone this repository:
 
-```powershell
+```
 git clone https://github.com/nimbuldev/wt-shrink.git
 ```
 
 2. Copy the module to your PowerShell modules directory:
 
-```powershell
+```pwsh
 # Create the module directory if it doesn't exist
 $modulesDir = "$env:USERPROFILE\Documents\PowerShell\Modules\ResizeTerminal"
 if (-not (Test-Path $modulesDir)) {
