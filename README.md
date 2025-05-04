@@ -155,25 +155,6 @@ New-ResizeShim "npm" -AnimationType "EaseOut"   # Decelerating animation (defaul
 New-ResizeShim "npm" -AnimationType "EaseInOut" # Smooth acceleration and deceleration
 ```
 
-## Advanced Examples
-
-### Example 1: Creating a git shim that only resizes for specific operations
-
-```powershell
-# Create a git shim that only resizes for potentially verbose operations
-New-ResizeShim "git" -RibbonHeight 200 -Trigger @("log", "diff", "blame", "reflog")
-```
-
-### Example 2: Custom animation for different commands
-
-```powershell
-# Fast animation for quick commands
-New-ResizeShim "npm list" -AnimationDuration 100 -RibbonHeight 300
-
-# Slower, smoother animation for commands where you want to see the transition
-New-ResizeShim "docker build" -AnimationDuration 400 -AnimationType "EaseInOut" -RibbonHeight 200
-```
-
 ## Troubleshooting
 
 ### Window Detection Issues
@@ -210,13 +191,3 @@ Verify your Windows config has animation enabled.
 ## License
 
 This project is licensed under the MIT License I guess - you know the one. I don't care what you do.
-
-## Contributing
-
-Please feel free to submit a Pull Request. I might not even read it-- I like to live dangerously.
-
-## AI DISCLAIMER
-
-This project was primarily made by agentic AI, guided by me whilst eating a sandwich.
-It's still very bad, and I hate it. Nonetheless, the vibes were real.
-The examples in this README are stupid. The module is really just so I can be sure my builds are still running.
